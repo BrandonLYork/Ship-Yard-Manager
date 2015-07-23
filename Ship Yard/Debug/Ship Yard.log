@@ -1,0 +1,16 @@
+﻿Build started 7/22/2015 6:12:12 PM.
+     1>Project "C:\Users\vfiuser\documents\visual studio 2013\Projects\Ship Yard\Ship Yard\Ship Yard.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt engine\driver.cpp
+         driver.cpp
+     1>c:\users\vfiuser\documents\visual studio 2013\projects\ship yard\ship yard\engine\clock.h(27): warning C4244: 'return' : conversion from 'time_t' to 'uint32_t', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vfiuser\documents\visual studio 2013\Projects\Ship Yard\Debug\Ship Yard.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vfiuser\documents\visual studio 2013\Projects\Ship Yard\Debug\Ship Yard.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vfiuser\documents\visual studio 2013\Projects\Ship Yard\Debug\Ship Yard.lib" /MACHINE:X86 Debug\clock.obj
+         Debug\driver.obj
+         Debug\engine.obj
+         Ship Yard.vcxproj -> C:\Users\vfiuser\documents\visual studio 2013\Projects\Ship Yard\Debug\Ship Yard.exe
+     1>Done Building Project "C:\Users\vfiuser\documents\visual studio 2013\Projects\Ship Yard\Ship Yard\Ship Yard.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.64
