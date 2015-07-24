@@ -1,6 +1,8 @@
 #ifndef _ROOM_H_
 #define _ROOM_H_
 
+#include <stdio.h>
+
 enum e_room_direction {
 	RmConn_UP,
 	RmConn_Down,
@@ -16,11 +18,11 @@ enum e_room_type {
 
 class _room_ {
 private:
-	Room * _room_connections[6];
+	_room_ * _room_connections[6];
 
-	Wiring * _wire_connections[6];
+	// Wiring * _wire_connections[6];
 
-	Piping * _pipe_connections[6];
+	// Piping * _pipe_connections[6];
 
 	int _PipeLimit;
 	int _PipeTypeLimit;
@@ -34,8 +36,17 @@ public:
 
 	}
 	
-	void add_door(Room * conn, int dir) {
+	void add_door(_room_ * conn, int dir) {
 		_room_connections[dir] = conn;
+	}
+
+	void print_room() {
+		switch (_my_type) {
+		case Rm_Default:
+		default:
+			printf("X");
+			break;
+		}
 	}
 } typedef Room;
 

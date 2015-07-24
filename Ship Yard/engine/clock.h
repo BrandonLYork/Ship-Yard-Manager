@@ -24,7 +24,7 @@ public:
 	}
 
 	uint32_t get_delta() {
-		return (uint32_t)clock() - _last_tick;
+		return (uint32_t)(clock()) - _last_tick;
 	}
 
 	bool timed_update() {

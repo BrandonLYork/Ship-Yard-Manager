@@ -3,6 +3,7 @@
 #include "engine.h"
 
 #include "..\yard\wiring.h"
+#include "..\yard\dock.h"
 
 int main(int argc, char* argv[]) {
 	//_engine * _e;
@@ -14,11 +15,16 @@ int main(int argc, char* argv[]) {
 	// run game loop
 
 	// clean up
+	_dock_ d;
+	d.start_new_ship(3, 3, 3);
+	d.print_dock(0);
 
 	printf("%d", ELECTRICAL);
 	printf("%d", CONTROL);
 	printf("%d", NETWORK);
 
+	printf("Press any key to continue...");
+	getchar();
 	return R_SUCCESS;
 }
 
