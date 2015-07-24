@@ -30,6 +30,25 @@ public:
 		}
 	}
 
+	// void
+
+	void print_sub_dock(int x, int y, int h, int s) {
+		for (int j = y; j < s + y; j++) {
+			for (int i = x; i < s + x; i++) {
+				_room[i][j][h].print_room();
+				if (i < s + x - 1)
+					printf(" - ");
+			}
+			printf("\n");
+			if (j < s + y - 1) {
+				for (int i = 0; i < s + x; i++) {
+					printf("|   ");
+				}
+			}
+			printf("\n");
+		}
+	}
+
 	void print_dock(int h) {
 		// Print across and then down
 		// x - x - x - x

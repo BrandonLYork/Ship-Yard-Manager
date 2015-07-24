@@ -1,16 +1,17 @@
-﻿Build started 7/23/2015 6:28:23 PM.
+﻿Build started 7/24/2015 4:29:51 PM.
      1>Project "C:\Users\vfiuser\Desktop\Ship-Yard-Manager\Ship Yard\Ship Yard.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt engine\driver.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt engine\driver.cpp engine\engine.cpp
+         engine.cpp
+     1>c:\users\vfiuser\desktop\ship-yard-manager\ship yard\engine\clock.h(27): warning C4244: 'return' : conversion from 'time_t' to 'uint32_t', possible loss of data
          driver.cpp
      1>c:\users\vfiuser\desktop\ship-yard-manager\ship yard\engine\clock.h(27): warning C4244: 'return' : conversion from 'time_t' to 'uint32_t', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vfiuser\Desktop\Ship-Yard-Manager\Debug\Ship Yard.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vfiuser\Desktop\Ship-Yard-Manager\Debug\Ship Yard.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vfiuser\Desktop\Ship-Yard-Manager\Debug\Ship Yard.lib" /MACHINE:X86 Debug\clock.obj
-         Debug\driver.obj
-         Debug\engine.obj
-         Ship Yard.vcxproj -> C:\Users\vfiuser\Desktop\Ship-Yard-Manager\Debug\Ship Yard.exe
-     1>Done Building Project "C:\Users\vfiuser\Desktop\Ship-Yard-Manager\Ship Yard\Ship Yard.vcxproj" (Build target(s)).
+     1>c:\users\vfiuser\desktop\ship-yard-manager\ship yard\engine\driver.cpp(91): error C2039: 'getWParam' : is not a member of '_engine'
+                 c:\users\vfiuser\desktop\ship-yard-manager\ship yard\engine\engine.h(6) : see declaration of '_engine'
+         Generating Code...
+     1>c:\users\vfiuser\desktop\ship-yard-manager\ship yard\engine\engine.cpp(71): warning C4715: '_engine::open_window' : not all control paths return a value
+     1>Done Building Project "C:\Users\vfiuser\Desktop\Ship-Yard-Manager\Ship Yard\Ship Yard.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.87
+Time Elapsed 00:00:00.85
