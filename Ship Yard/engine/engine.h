@@ -2,6 +2,12 @@
 #include "..\graphics\graphics.h"
 #include "clock.h"
 
+enum e_game_state {
+	eGS_START,
+	eGS_RUN,
+	eGS_STOP
+};
+
 class _engine
 {
 private:
@@ -29,7 +35,7 @@ public:
 	//DInput			input;
 	//DrawlistHandler dlHandler;
 	//GameHandler		game;
-	int				m_gameState;
+	e_game_state	m_gameState;
 
 	//stopWatch		m_throttle;	//Throttle Code
 	_clock			m_clock;
@@ -39,6 +45,7 @@ public:
 	// Singleton of engine class // Only allows on instance of the engine to ever be created or used.
 	inline static _engine* ins() { static _engine e; return &e; }
 	e_return_response init(HINSTANCE, HINSTANCE, LPSTR, int);
+	WNDCLASSEX & getwindows_class() { return m_wCex; }
 	e_return_response open_window();
 	e_return_response work();
 	e_return_response cleanUp();
@@ -46,6 +53,20 @@ public:
 	WPARAM getWParams() {
 		return m_uMsg.wParam;
 	}
+	LPARAM getLParams() {
+		return m_uMsg.lParam;
+	}
+	HWND const get_wnd() const {
+		return m_hWnd;
+	}
+	
+	bool run_game() {
+		if (m_forceQuit) return false;
+		return m_gameState != eGS_STOP;
+	}
+
+	e_return_response end_game() { m_gameState = eGS_STOP; return R_SUCCESS; }
+	e_return_response force_stop_game() { m_forceQuit = true; return R_SUCCESS; }
 	
 
 	//void Init(HINSTANCE hInstance,							// to be called once at the beginning of the program

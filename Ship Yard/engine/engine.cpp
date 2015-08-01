@@ -2,7 +2,17 @@
 #include "engine.h"
 #include "globals.h"
 
-LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+// extern LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+
+#include <tchar.h>
+
+// Global variables
+
+// The main window class name.
+static TCHAR szWindowClass[] = ("Ship Yard");
+
+// The string that appears in the application's title bar.
+static TCHAR szTitle[] = _T("Design your ship");
 
 e_return_response Engine::init(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	/*MSG			m_uMsg;
@@ -10,16 +20,16 @@ e_return_response Engine::init(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPS
 	LPSTR		m_lpCmdLine;
 	int			m_nCmdShow;*/
 
-	m_hInstance = hInstance;
+	m_hInstance = hInstance; 
 	m_hPrevInstance = hPrevInstance;
 	m_lpCmdLine = lpCmdLine;
 	m_nCmdShow = nCmdShow;
 	
-	static TCHAR szWindowClass[] = ("Ship Yard");
+	
 
 	m_wCex.cbSize = sizeof(WNDCLASSEX);
 	m_wCex.style = CS_HREDRAW | CS_VREDRAW;
-	m_wCex.lpfnWndProc = WndProc;
+	//m_wCex.lpfnWndProc = WndProc;
 	m_wCex.cbClsExtra = 0;
 	m_wCex.cbWndExtra = 0;
 	m_wCex.hInstance = hInstance;
@@ -30,13 +40,26 @@ e_return_response Engine::init(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPS
 	m_wCex.lpszClassName = szWindowClass;
 	m_wCex.hIconSm = LoadIcon(m_wCex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
 
+	if (!RegisterClassEx(&m_wCex)) {
+		MessageBox(NULL,
+			("Call to RegisterClassEx failed!"),
+			("Win32 Guided Tour"),
+			NULL);
+
+		return R_FAIL;
+	}
+
+	this->open_window();
+
 	return R_SUCCESS;
 }
 
+
+
 e_return_response Engine::open_window() {
 	//static TCHAR szWindowClass[] = ("win32app");
-	static TCHAR szTitle[] = ("Win32 Guided Tour Application");
-	static TCHAR szClassTitle[] = ("Ship Yard");
+	/*static TCHAR szTitle[] = ("Win32 Guided Tour Application");
+	static TCHAR szClassTitle[] = ("Ship Yard");*/
 	
 	// The parameters to CreateWindow explained:
 	// szWindowClass: the name of the application
@@ -49,11 +72,11 @@ e_return_response Engine::open_window() {
 	// hInstance: the first parameter from WinMain
 	// NULL: not used in this application
 	m_hWnd = CreateWindow(
-		szClassTitle,
+		szWindowClass,
 		szTitle,
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
-		500, 100,
+		640, 400,
 		NULL,
 		NULL,
 		m_hInstance,
@@ -67,8 +90,12 @@ e_return_response Engine::open_window() {
 			("Win32 Guided Tour"),
 			NULL);
 
-		return R_SUCCESS;
+		return R_FAIL;
 	}
+
+	ShowWindow(m_hWnd, m_nCmdShow);
+
+	return R_SUCCESS;
 }
 
 e_return_response Engine::work() {
